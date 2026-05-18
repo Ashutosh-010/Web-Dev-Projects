@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Next Adventure, Perfectly Planned - Expat Explore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.pexels.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/enhancements.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/tours-section.css">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+</head>
+<body>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <!-- Top announcement banner -->
+  <div class="top-banner" id="topBanner">
+    <a href="#" class="top-banner__link">NEW! All tours Guaranteed to Depart</a>
+    <button class="top-banner__close" id="closeBanner" aria-label="Close banner">
+      <span class="material-icons-outlined">close</span>
+    </button>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__bar">
+      <div class="header__start">
+        <button class="header__menu-btn" id="menuBtn" aria-label="Open menu">
+          <span class="material-icons-outlined">menu</span>
+          <span class="header__menu-label">MENU</span>
+        </button>
+        <nav class="header__nav" id="headerNav" aria-label="Main navigation">
+          <a href="#tours" data-nav="tours">Tours</a>
+          <a href="#destinations" data-nav="destinations">Destinations</a>
+          <a href="#why-us" data-nav="why-us">Why Us</a>
+          <a href="#reviews" data-nav="reviews">Reviews</a>
+          <a href="#faq" data-nav="faq">Help</a>
+        </nav>
+      </div>
+
+      <a href="index.html" class="header__logo" aria-label="Expat Explore Home">
+        <img src="assets/logo.svg" alt="Expat Explore" class="logo-img" width="200" height="52">
+      </a>
+
+      <div class="header__end">
+        <select class="header__currency" id="currencySelect" aria-label="Currency">
+          <option value="USD">USD $</option>
+          <option value="GBP">GBP £</option>
+          <option value="EUR">EUR €</option>
+        </select>
+        <span class="header__divider" aria-hidden="true"></span>
+        <div class="header__tools">
+          <button class="header__icon-btn" id="headerSearchBtn" aria-label="Search tours">
+            <span class="material-icons-outlined">search</span>
+          </button>
+          <button class="header__icon-btn header__wishlist-badge" id="wishlistBtn" aria-label="Wishlist">
+            <span class="material-icons-outlined">favorite_border</span>
+            <span class="wishlist-count" data-wishlist-count>0</span>
+          </button>
+          <button class="header__icon-btn header__icon-btn--account" aria-label="Account">
+            <span class="material-icons-outlined">account_circle</span>
+          </button>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+            <span class="material-icons-outlined">dark_mode</span>
+          </button>
+        </motiondiv>
+        <a href="#tours" class="header__book-btn">Book Now</a>
+      </motiondiv>
+    </motiondiv>
+  </header>
+
+  <!-- Mobile / side navigation -->
+  <nav class="side-nav" id="sideNav" aria-hidden="true">
+    <div class="side-nav__overlay" id="navOverlay"></div>
+    <div class="side-nav__panel">
+      <button class="side-nav__close" id="closeNav" aria-label="Close menu">
+        <span class="material-icons-outlined">close</span>
+      </button>
+      <ul class="side-nav__list">
+        <li><a href="#">Tours</a></li>
+        <li><a href="#">Destinations</a></li>
+        <li><a href="#">Deals</a></li>
+        <li><a href="#">Why Expat Explore</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Help Centre</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Header search overlay -->
+  <div class="search-overlay" id="searchOverlay" aria-hidden="true">
+    <div class="search-overlay__inner container">
+      <input type="search" placeholder="Search" class="search-overlay__input" id="headerSearchInput">
+      <button class="search-overlay__submit" aria-label="Search">
+        <span class="material-icons-outlined">search</span>
+      </button>
+      <button class="search-overlay__close" id="closeSearch" aria-label="Close search">
+        <span class="material-icons-outlined">close</span>
+      </button>
+    </div>
+  </div>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero__bg">
+        <img class="hero__bg-img" src="https://images.pexels.com/photos/3181360/pexels-photo-3181360.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop" alt="" width="1920" height="1080" fetchpriority="high" referrerpolicy="no-referrer">
+      </div>
+      <div class="hero__overlay"></div>
+      <div class="hero__content container">
+        <span class="hero__badge-float"><span class="material-icons-outlined">verified</span> 20 Years of Adventure</span>
+        <h1 class="hero__title">Fun, Easy &amp; Affordable Group Tours</h1>
+        <p class="hero__subtitle">All Bucket List Destinations. All Guaranteed to Depart.</p>
+
+        <form class="hero-search" id="heroSearchForm">
+          <span class="material-icons-outlined hero-search__icon">location_on</span>
+          <input type="text" class="hero-search__input" id="destinationInput" placeholder="Where would you like to go?" autocomplete="off" list="destinations">
+          <datalist id="destinations">
+            <option value="Europe">
+            <option value="Scandinavia">
+            <option value="Spain">
+            <option value="Italy">
+            <option value="UK & Ireland">
+            <option value="Balkans">
+            <option value="Eastern Europe">
+          </datalist>
+          <button type="submit" class="hero-search__btn" aria-label="Search tours">
+            <span class="material-icons-outlined">search</span>
+          </button>
+        </form>
+
+        <div class="hero__trust">
+          <div class="hero__rating">
+            <span class="hero__rating-text">Rated <strong>4.7</strong></span>
+            <div class="stars" aria-label="4.7 out of 5 stars">
+              <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star half">★</span>
+            </div>
+          </div>
+          <p class="hero__reviews-text">Based on 8,031 verified reviews</p>
+          <div class="hero__badges">
+            <a href="#" class="trust-badge" aria-label="TripAdvisor">
+              <span class="trust-badge__icon ta">TA</span>
+            </a>
+            <a href="#" class="trust-badge" aria-label="Reviews">
+              <span class="trust-badge__icon reviews">R</span>
+            </a>
+            <a href="#" class="trust-badge" aria-label="Facebook">
+              <span class="trust-badge__icon fb">f</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats bar -->
+    <section class="stats-bar reveal">
+      <div class="container stats-bar__grid">
+        <div class="stat-item">
+          <div class="stat-item__number" data-count="180000" data-suffix="+">0</div>
+          <div class="stat-item__label">Happy Travellers</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-item__number" data-count="50" data-suffix="">0</div>
+          <div class="stat-item__label">Countries Visited</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-item__number" data-count="8031" data-suffix="">0</div>
+          <div class="stat-item__label">Verified Reviews</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-item__number" data-count="91" data-suffix="%">0</div>
+          <div class="stat-item__label">Would Recommend</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Book With Confidence -->
+    <section class="confidence section reveal">
+      <div class="container">
+        <h2 class="section__title">Book With Confidence</h2>
+        <p class="section__subtitle">More flexibility, more protection, more reasons to book today.</p>
+        <div class="confidence__grid">
+          <a href="#" class="confidence-card">
+            <div class="confidence-card__icon">
+              <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/><path d="M18 28c0-3.3 2.7-8 6-8s6 4.7 6 8" stroke="currentColor" stroke-width="2"/><text x="24" y="26" text-anchor="middle" fill="currentColor" font-size="12" font-weight="bold">$</text></svg>
+            </div>
+            <h3>Risk-Free Booking</h3>
+            <p>Pay 10% now with a 10-day refund guarantee if you change your mind.</p>
+          </a>
+          <a href="#" class="confidence-card">
+            <div class="confidence-card__icon">
+              <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2"/><path d="M16 24l5 5 11-11" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3>All Departures Guaranteed</h3>
+            <p>Book your tour and get excited. It's happening.</p>
+          </a>
+          <a href="#" class="confidence-card">
+            <div class="confidence-card__icon">
+              <svg viewBox="0 0 48 48" fill="none"><rect x="10" y="12" width="28" height="26" rx="2" stroke="currentColor" stroke-width="2"/><path d="M10 18h28M18 8v6M30 8v6" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3>Flexible Date Changes</h3>
+            <p>Change your tour or departure date free of charge. (*T&amp;Cs Apply)</p>
+          </a>
+          <a href="#" class="confidence-card">
+            <div class="confidence-card__icon">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M24 6L8 14v10c0 10 6.5 16.5 16 18 9.5-1.5 16-8 16-18V14L24 6z" stroke="currentColor" stroke-width="2"/><rect x="20" y="22" width="8" height="8" rx="1" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3>Regulated &amp; Protected</h3>
+            <p>Our membership of ABTA ensures your payments are protected.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top Tours Carousel -->
+    <section class="tours section section--gray reveal" id="tours">
+      <div class="container">
+        <span class="section-eyebrow">Top picks</span>
+        <h3 class="tours__heading">Tried. Tested. Loved.</h3>
+        <p class="tours__subheading">Shop our top-rated tours! Beloved by first-time travellers and avid adventurers alike.</p>
+
+        <div class="tour-filters" id="tourFilters">
+          <button type="button" class="tour-filters__btn active" data-filter="all">All Tours</button>
+          <button type="button" class="tour-filters__btn" data-filter="europe">Europe</button>
+          <button type="button" class="tour-filters__btn" data-filter="sale">On Sale</button>
+        </div>
+
+        <div class="tours-carousel-wrap">
+          <button class="carousel-btn carousel-btn--prev" id="toursPrev" aria-label="Previous tours">
+            <span class="material-icons-outlined">chevron_left</span>
+          </button>
+          <div class="tours-carousel" id="toursCarousel"></div>
+          <button class="carousel-btn carousel-btn--next" id="toursNext" aria-label="Next tours">
+            <span class="material-icons-outlined">chevron_right</span>
+          </button>
+        </div>
+        <div class="carousel-progress" id="carouselProgress"><span class="carousel-progress__thumb"></span></div>
+
+        <div class="tours__cta-wrap">
+          <a href="#" class="btn btn--yellow">View All Tours</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- As Featured In -->
+    <section class="featured section">
+      <div class="container">
+        <h2 class="section__title">As Featured In</h2>
+        <p class="section__subtitle">Recognised by global media and trusted by thousands of travellers worldwide.</p>
+        <div class="featured__logos">
+          <span class="featured__logo">Forbes</span>
+          <span class="featured__logo">BBC</span>
+          <span class="featured__logo">The Guardian</span>
+          <span class="featured__logo">Lonely Planet</span>
+          <span class="featured__logo">Travel Weekly</span>
+        </div>
+        <div class="featured__articles">
+          <a href="#" class="article-card">
+            <img src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=400&h=280&fit=crop" alt="Group travel" loading="lazy" referrerpolicy="no-referrer">
+            <p>Group tours create intimate, memorable experiences for solo female travellers.</p>
+          </a>
+          <a href="#" class="article-card">
+            <img src="https://images.pexels.com/photos/2387866/pexels-photo-2387866.jpeg?auto=compress&cs=tinysrgb&w=400&h=280&fit=crop" alt="Mountain travel" loading="lazy" referrerpolicy="no-referrer">
+            <p>Holidaymakers are escaping soaring temperatures and crowds with "Coolcations".</p>
+          </a>
+          <a href="#" class="article-card">
+            <img src="https://images.pexels.com/photos/2363/pexels-photo-2363.jpeg?auto=compress&cs=tinysrgb&w=400&h=280&fit=crop" alt="Paris" loading="lazy" referrerpolicy="no-referrer">
+            <p>Co-Founder Jakes Maritz shares how a weekend in Paris 20 years ago launched Expat Explore.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Big Adventures / Payment promo -->
+    <section class="promo-split">
+      <div class="promo-split__item promo-split__item--blue">
+        <div class="promo-split__content">
+          <h2>Big Adventures.</h2>
+          <h2>Small Payments.</h2>
+          <p>Book with a 10% deposit and pay the rest in monthly instalments. Smart, simple and stress-free!</p>
+          <a href="#" class="btn btn--white">Learn More</a>
+        </div>
+      </div>
+      <div class="promo-split__item promo-split__item--image">
+        <img class="promo-split__bg-img" src="https://images.pexels.com/photos/21014/pexels-photo-21014.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="" loading="lazy" referrerpolicy="no-referrer">
+        <div class="promo-split__overlay"></div>
+      </div>
+    </section>
+
+    <!-- Blog -->
+    <section class="blog section section--gray">
+      <div class="container">
+        <div class="blog__header">
+          <div>
+            <span class="blog__label">Blogs.</span>
+            <h2 class="blog__title">Travel Tips.</h2>
+            <p class="blog__desc">Dive into our blog and discover all the travel tips, tales, and tidbits to keep you inspired and adventure-ready!</p>
+          </div>
+          <a href="#" class="btn btn--outline">Get Inspired</a>
+        </div>
+        <div class="blog__grid">
+          <article class="blog-card">
+            <img src="https://images.pexels.com/photos/1797161/pexels-photo-1797161.jpeg?auto=compress&cs=tinysrgb&w=500&h=333&fit=crop" alt="Italy" loading="lazy" referrerpolicy="no-referrer">
+            <h3>Get Inspired &amp; Travel Smarter.</h3>
+            <p>Discover the best time to visit, the flavours and experiences not to miss.</p>
+            <a href="#">Read More</a>
+          </article>
+          <article class="blog-card">
+            <img src="https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=500&h=333&fit=crop" alt="UK" loading="lazy" referrerpolicy="no-referrer">
+            <h3>Get Inspired &amp; Travel Smarter.</h3>
+            <p>Insider tips seasoned travellers swear by for your next European adventure.</p>
+            <a href="#">Read More</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Win Iceland -->
+    <section class="iceland-promo">
+      <div class="iceland-promo__bg">
+        <img class="iceland-promo__bg-img" src="https://images.pexels.com/photos/1618662/pexels-photo-1618662.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop" alt="" loading="lazy" referrerpolicy="no-referrer">
+      </div>
+      <div class="iceland-promo__overlay"></div>
+      <div class="container iceland-promo__content">
+        <h3>Win a Trip to Iceland</h3>
+        <p>Play Tour Match Maker, find your perfect tour, and you're automatically in the draw to win a spot on our Birthday Celebration Tour with Carl &amp; Jakes.</p>
+        <a href="#" class="btn btn--yellow">Play to Win</a>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="reviews section">
+      <div class="container">
+        <h2 class="section__title">Trusted by 180,000+ Travellers</h2>
+        <h3 class="reviews__subtitle">Reviews</h3>
+        <div class="reviews__grid" id="reviewsGrid"></div>
+        <div class="reviews__photos">
+          <button class="reviews__photo-btn" type="button"><img src="https://images.pexels.com/photos/457878/pexels-photo-457878.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop" alt="Traveller photo" loading="lazy" referrerpolicy="no-referrer"></button>
+          <button class="reviews__photo-btn" type="button"><img src="https://images.pexels.com/photos/1320684/pexels-photo-1320684.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop" alt="Traveller photo" loading="lazy" referrerpolicy="no-referrer"></button>
+          <button class="reviews__photo-btn" type="button"><img src="https://images.pexels.com/photos/2901209/pexels-photo-2901209.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop" alt="Traveller photo" loading="lazy" referrerpolicy="no-referrer"></button>
+          <button class="reviews__more-btn" id="morePhotos">Show more review photos</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- World map / continents -->
+    <section class="map-section section section--gray">
+      <div class="container">
+        <h2 class="section__title">Where will you go first?</h2>
+        <p class="section__subtitle">Click on a continent to see the most popular tours</p>
+        <div class="map-interactive">
+          <div class="map-interactive__visual">
+            <svg viewBox="0 0 800 400" class="world-map" id="worldMap">
+              <path class="continent" data-continent="europe" d="M380,80 L480,70 L520,100 L500,150 L450,180 L400,170 L370,140 Z" fill="#cbd5e1"/>
+              <path class="continent" data-continent="africa" d="M400,180 L480,190 L470,280 L400,300 L370,250 Z" fill="#cbd5e1"/>
+              <path class="continent" data-continent="asia" d="M520,90 L650,80 L700,150 L680,220 L550,200 L520,150 Z" fill="#cbd5e1"/>
+              <path class="continent" data-continent="americas" d="M120,80 L200,70 L220,200 L180,320 L100,300 L80,180 Z" fill="#cbd5e1"/>
+              <path class="continent" data-continent="oceania" d="M620,280 L720,270 L740,320 L680,350 L620,330 Z" fill="#cbd5e1"/>
+            </svg>
+          </div>
+          <div class="map-interactive__panel" id="continentPanel">
+            <h4 id="continentTitle">Europe is calling!</h4>
+            <ul class="map-tours" id="continentTours">
+              <li>7 Days | 6 Countries</li>
+              <li>14 Days | 8 Countries</li>
+              <li>13 Days | 5 Countries</li>
+              <li>12 Days | 7 Countries</li>
+              <li>7 Days | 1 Country</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Destinations -->
+    <section class="destinations section reveal" id="destinations">
+      <div class="container">
+        <span class="section-eyebrow">Explore</span>
+        <h2 class="section__title">Popular Destinations</h2>
+        <p class="section__subtitle">Tap a destination to start your search</p>
+        <div class="dest-chips">
+          <button type="button" class="dest-chip active" data-dest="Europe"><span class="material-icons-outlined">public</span> Europe</button>
+          <button type="button" class="dest-chip" data-dest="Scandinavia"><span class="material-icons-outlined">ac_unit</span> Scandinavia</button>
+          <button type="button" class="dest-chip" data-dest="Spain"><span class="material-icons-outlined">wb_sunny</span> Spain</button>
+          <button type="button" class="dest-chip" data-dest="Italy"><span class="material-icons-outlined">restaurant</span> Italy</button>
+          <button type="button" class="dest-chip" data-dest="UK & Ireland"><span class="material-icons-outlined">castle</span> UK &amp; Ireland</button>
+          <button type="button" class="dest-chip" data-dest="Balkans"><span class="material-icons-outlined">landscape</span> Balkans</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Us -->
+    <section class="why-us section reveal" id="why-us">
+      <div class="container">
+        <span class="section-eyebrow">The Expat difference</span>
+        <h2 class="section__title">Why Travel With Us?</h2>
+        <p class="section__subtitle">Group tours designed for comfort, connection, and incredible value.</p>
+        <div class="why-us__grid">
+          <div class="why-card">
+            <div class="why-card__icon"><span class="material-icons-outlined">groups</span></div>
+            <h3>Expert Tour Leaders</h3>
+            <p>Knowledgeable guides who bring each destination to life with stories and local insight.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-card__icon"><span class="material-icons-outlined">directions_bus</span></div>
+            <h3>Modern Coaches</h3>
+            <p>Travel in comfort with Wi-Fi, reclining seats, and panoramic windows on every journey.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-card__icon"><span class="material-icons-outlined">savings</span></div>
+            <h3>Unbeatable Value</h3>
+            <p>Accommodation, transport, and many meals included — plus flexible payment plans.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section--gray reveal" id="faq">
+      <div class="container">
+        <span class="section-eyebrow">Help centre</span>
+        <h2 class="section__title">Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button type="button" class="faq-item__question">How does the 10% deposit work? <span class="material-icons-outlined">expand_more</span></button>
+            <div class="faq-item__answer"><div class="faq-item__answer-inner">Pay just 10% when you book. The balance is split into easy monthly instalments, and you have a 10-day money-back guarantee if you change your mind.</div></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-item__question">Are all departures guaranteed? <span class="material-icons-outlined">expand_more</span></button>
+            <div class="faq-item__answer"><div class="faq-item__answer-inner">Yes! Every tour on our site is guaranteed to depart once you book — no cancellations due to low numbers.</div></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-item__question">Can I travel solo? <span class="material-icons-outlined">expand_more</span></button>
+            <div class="faq-item__answer"><div class="faq-item__answer-inner">Absolutely. About 40% of our travellers join solo. You'll share a room with a same-gender roommate or can request a single supplement.</div></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-item__question">What's included in the tour price? <span class="material-icons-outlined">expand_more</span></button>
+            <div class="faq-item__answer"><div class="faq-item__answer-inner">Coach transport, accommodation, many meals, guided sightseeing, and an expert tour leader. Flights and travel insurance are not included.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter section" id="newsletter">
+      <div class="container newsletter__inner">
+        <div class="newsletter__text">
+          <h3>Join the Expat Explore family!</h3>
+          <p>We'll deliver top travel tips, insider info and travel inspiration right to your inbox.</p>
+        </div>
+        <form class="newsletter__form" id="newsletterForm">
+          <div class="form-group">
+            <label for="newsName">Name</label>
+            <input type="text" id="newsName" name="name" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label for="newsEmail">Email</label>
+            <input type="email" id="newsEmail" name="email" placeholder="pat@example.com" required>
+          </div>
+          <p class="newsletter__legal">Subscribe to the Expat Explore newsletter. By subscribing, you agree to our <a href="#">T&amp;C's</a> and <a href="#">Privacy Policy</a>.</p>
+          <button type="submit" class="btn btn--blue" id="joinBtn" disabled>Join Now</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <section class="footer__memberships">
+        <h2>Memberships</h2>
+        <p>We are a Member of ABTA, membership number Y6593. We are obliged to maintain a high standard of service to you by ABTA's Code of Conduct.</p>
+        <p>The Association of Bonded Travel Organisers Trust Limited (ABTOT) provides financial protection under The Package Travel and Linked Travel Arrangements Regulations 2018 for Expat Explore Travel.</p>
+        <div class="footer__badges">
+          <span class="footer-badge">ABTA</span>
+          <span class="footer-badge">ABTOT</span>
+        </div>
+      </section>
+
+      <div class="footer__grid">
+        <div class="footer__col">
+          <h3>About Us</h3>
+          <ul>
+            <li><a href="#">The Expat Explore Story</a></li>
+            <li><a href="#">Why Expat Explore?</a></li>
+            <li><a href="#">Why Group Travel?</a></li>
+            <li><a href="#">Sustainability</a></li>
+            <li><a href="#">Tour Leaders &amp; Drivers</a></li>
+            <li><a href="#">Our Coaches</a></li>
+            <li><a href="#">Travel Agents</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">In The Media</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3>Information</h3>
+          <ul>
+            <li><a href="#">Facebook Community Group</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Book With Confidence</a></li>
+            <li><a href="#">Help Centre</a></li>
+            <li><a href="#">Visas</a></li>
+            <li><a href="#">Travel Insurance</a></li>
+            <li><a href="#">Book Pre Tour Accommodation</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="#">Terms &amp; Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Cookies</a></li>
+          </ul>
+          <p class="footer__recaptcha">This site is protected by reCAPTCHA and the Google <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a> apply.</p>
+        </div>
+        <div class="footer__col footer__contact">
+          <h3>Get in Touch</h3>
+          <ul>
+            <li><a href="#">Facebook Messenger</a></li>
+            <li><a href="tel:+441474552764">+44 147 455 2764</a></li>
+            <li class="footer__hours">Mon-Fri: 24 hours (GMT)<br>Sat: 00:00 AM - 04:00 PM (GMT)<br>Sun: 08:00 AM - 04:00 PM (GMT)</li>
+          </ul>
+          <div class="footer__social">
+            <a href="#" aria-label="Facebook"><span class="social-icon fb">f</span></a>
+            <a href="#" aria-label="Instagram"><span class="social-icon ig">ig</span></a>
+            <a href="#" aria-label="Youtube"><span class="social-icon yt">▶</span></a>
+          </div>
+          <p class="footer__ssl">256 bit SSL encrypted security</p>
+        </div>
+      </div>
+
+      <div class="payment-strip">
+        <span class="payment-icon">VISA</span>
+        <span class="payment-icon">Mastercard</span>
+        <span class="payment-icon">Amex</span>
+        <span class="payment-icon">PayPal</span>
+        <span class="payment-icon">Apple Pay</span>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Expat Explore Travel. Educational clone — not affiliated with Expat Explore.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Tour quick-view modal -->
+  <div class="modal" id="tourModal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
+    <div class="modal__dialog">
+      <button type="button" class="modal__close" data-close-modal aria-label="Close"><span class="material-icons-outlined">close</span></button>
+      <img class="modal__image" id="modalImage" src="" alt="">
+      <div class="modal__body">
+        <h2 id="modalTitle">Tour</h2>
+        <p id="modalMeta" class="tour-card__meta"></p>
+        <p id="modalDesc"></p>
+        <div class="tour-card__pricing">
+          <div class="tour-card__old" id="modalOldPrice"></div>
+          <div class="tour-card__price" id="modalPrice"></div>
+        </div>
+        <a href="#" class="btn btn--blue" style="margin-top:16px;display:block;text-align:center">Book This Tour</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wishlist panel -->
+  <aside class="wishlist-panel" id="wishlistPanel" aria-label="Saved tours">
+    <div class="wishlist-panel__header">
+      <h3>My Wishlist</h3>
+      <button type="button" data-close-wishlist aria-label="Close"><span class="material-icons-outlined">close</span></button>
+    </div>
+    <div class="wishlist-panel__list" id="wishlistList"></div>
+  </aside>
+
+  <!-- Chat widget -->
+  <div class="chat-widget" id="chatWidget">
+    <div class="chat-widget__header">
+      <strong>Need help?</strong>
+      <button type="button" data-close-chat aria-label="Close"><span class="material-icons-outlined">close</span></button>
+    </div>
+    <div class="chat-widget__body">
+      <p>Our travel experts are ready to help you plan your perfect trip.</p>
+      <p style="margin-top:12px"><a href="tel:+441474552764">+44 147 455 2764</a></p>
+      <p style="margin-top:8px">Mon–Fri 24h (GMT)</p>
+    </div>
+  </div>
+  <button class="chat-fab" id="chatFab" aria-label="Open chat">
+    <span class="material-icons-outlined">chat</span>
+  </button>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <span class="material-icons-outlined">keyboard_arrow_up</span>
+  </button>
+
+  <!-- Cookie banner -->
+  <div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-banner__inner container">
+      <h2>We value your privacy</h2>
+      <p>We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies. <a href="#">Cookie Policy</a></p>
+      <div class="cookie-banner__actions">
+        <button class="btn btn--outline btn--sm" id="cookieReject">Reject All</button>
+        <button class="btn btn--blue btn--sm" id="cookieAccept">Accept All</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/images.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/features.js"></script>
+</body>
+</html>
