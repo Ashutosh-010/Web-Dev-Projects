@@ -68,28 +68,34 @@
           <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
             <span class="material-icons-outlined">dark_mode</span>
           </button>
-        </motiondiv>
+        </div>
         <a href="#tours" class="header__book-btn">Book Now</a>
-      </motiondiv>
-    </motiondiv>
+      </div>
+    </div>
   </header>
 
   <!-- Mobile / side navigation -->
   <nav class="side-nav" id="sideNav" aria-hidden="true">
     <div class="side-nav__overlay" id="navOverlay"></div>
     <div class="side-nav__panel">
+      <div class="side-nav__brand">
+        <img src="assets/logo.svg" alt="" width="140" height="36">
+        <span>Expat Explore</span>
+      </div>
       <button class="side-nav__close" id="closeNav" aria-label="Close menu">
         <span class="material-icons-outlined">close</span>
       </button>
       <ul class="side-nav__list">
-        <li><a href="#">Tours</a></li>
-        <li><a href="#">Destinations</a></li>
-        <li><a href="#">Deals</a></li>
-        <li><a href="#">Why Expat Explore</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Contact Us</a></li>
-        <li><a href="#">Help Centre</a></li>
+        <li><a href="#tours"><span class="material-icons-outlined">luggage</span> Tours</a></li>
+        <li><a href="#destinations"><span class="material-icons-outlined">public</span> Destinations</a></li>
+        <li><a href="#why-us"><span class="material-icons-outlined">verified</span> Why Us</a></li>
+        <li><a href="#reviews"><span class="material-icons-outlined">star</span> Reviews</a></li>
+        <li><a href="#faq"><span class="material-icons-outlined">help</span> Help Centre</a></li>
+        <li><a href="#newsletter"><span class="material-icons-outlined">mail</span> Contact</a></li>
       </ul>
+      <div class="side-nav__cta">
+        <a href="#tours" class="btn btn--blue">Book Now</a>
+      </div>
     </div>
   </nav>
 
@@ -219,16 +225,45 @@
     </section>
 
     <!-- Top Tours Carousel -->
-    <section class="tours section section--gray reveal" id="tours">
+    <section class="tours-section reveal" id="tours">
+      <div class="tours-section__pattern" aria-hidden="true"></div>
       <div class="container">
-        <span class="section-eyebrow">Top picks</span>
-        <h3 class="tours__heading">Tried. Tested. Loved.</h3>
-        <p class="tours__subheading">Shop our top-rated tours! Beloved by first-time travellers and avid adventurers alike.</p>
+        <div class="tours-section__header">
+          <div class="tours-section__title-block">
+            <span class="section-eyebrow">Top picks</span>
+            <h2 class="tours-section__heading">Tried. Tested. <span class="accent">Loved.</span></h2>
+            <p class="tours-section__sub">Hand-picked adventures loved by 180,000+ travellers — all guaranteed to depart.</p>
+          </div>
+          <div class="tours-section__rating-card">
+            <div>
+              <span class="stars">★★★★★</span>
+              <div>
+                <strong>4.8</strong>
+                <span>from 8,031 reviews</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <div class="tour-filters" id="tourFilters">
-          <button type="button" class="tour-filters__btn active" data-filter="all">All Tours</button>
-          <button type="button" class="tour-filters__btn" data-filter="europe">Europe</button>
-          <button type="button" class="tour-filters__btn" data-filter="sale">On Sale</button>
+        <div class="tours-toolbar">
+          <div class="tour-filters" id="tourFilters">
+            <button type="button" class="tour-filters__btn active" data-filter="all">All Tours</button>
+            <button type="button" class="tour-filters__btn" data-filter="europe">Europe</button>
+            <button type="button" class="tour-filters__btn" data-filter="sale">On Sale</button>
+          </div>
+          <div class="tours-toolbar__right">
+            <div class="tours-sort">
+              <label for="tourSort">Sort by</label>
+              <select id="tourSort" aria-label="Sort tours">
+                <option value="popular">Most Popular</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="rating">Highest Rated</option>
+                <option value="duration">Duration</option>
+              </select>
+            </div>
+            <span class="tours-count" id="toursCount">10 tours</span>
+          </div>
         </div>
 
         <div class="tours-carousel-wrap">
@@ -242,7 +277,7 @@
         </div>
         <div class="carousel-progress" id="carouselProgress"><span class="carousel-progress__thumb"></span></div>
 
-        <div class="tours__cta-wrap">
+        <div class="tours-section__cta">
           <a href="#" class="btn btn--yellow">View All Tours</a>
         </div>
       </div>
@@ -335,7 +370,7 @@
     </section>
 
     <!-- Reviews -->
-    <section class="reviews section">
+    <section class="reviews section" id="reviews">
       <div class="container">
         <h2 class="section__title">Trusted by 180,000+ Travellers</h2>
         <h3 class="reviews__subtitle">Reviews</h3>

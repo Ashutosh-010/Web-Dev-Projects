@@ -1,6 +1,5 @@
 /**
  * Reliable image URLs (Pexels CDN – allows hotlinking, works without API key)
- * Format: auto-compress, sized for layout
  */
 const IMG = (id, w, h) =>
   `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}${h ? '&h=' + h : ''}&fit=crop`;
@@ -12,24 +11,23 @@ const IMAGES = {
   article1: IMG(3184292, 400, 280),
   article2: IMG(2387866, 400, 280),
   article3: IMG(2363, 400, 280),
-  blogItaly: IMG(1797161, 500, 333),
-  blogUk: IMG(460672, 500, 333),
+  blogItaly: IMG(4037552, 500, 333),
+  blogUk: IMG(672430, 500, 333),
   review1: IMG(457878, 100, 100),
   review2: IMG(1320684, 100, 100),
   review3: IMG(2901209, 100, 100),
   tours: [
-    IMG(1506900, 600, 400),   // Scandinavia / mountains
-    IMG(360142, 600, 400),    // Helsinki / city
-    IMG(773594, 600, 400),    // Nordic
-    IMG(1029604, 600, 400),   // Balkans
-    IMG(161815, 600, 400),    // Spain
-    IMG(1128440, 600, 400),   // Eastern Europe / city
-    IMG(1388031, 600, 400),   // Spain cities
-    IMG(2363, 600, 400),      // Paris / Europe
-    IMG(1523901, 600, 400),   // Italy
-    IMG(460672, 600, 400)     // UK
+    IMG(1638439, 800, 520),   // Norway / Scandinavia fjords
+    IMG(2583852, 800, 520),   // Baltic old town
+    IMG(3757121, 800, 520),   // Nordic landscape
+    IMG(1024945, 800, 520),   // Adriatic / Balkans coast
+    IMG(4171734, 800, 520),   // Spain architecture
+    IMG(161174, 800, 520),    // Prague / Eastern Europe
+    IMG(1388031, 800, 520),   // Spanish cities
+    IMG(338515, 800, 520),    // London / UK–Europe
+    IMG(4037552, 800, 520),   // Venice / Italy
+    IMG(2666981, 800, 520)    // Ireland cliffs
   ],
-  /** SVG data URI placeholder if remote image fails */
   placeholder(w, h, label) {
     const text = (label || 'Travel').slice(0, 20);
     return (

@@ -114,7 +114,17 @@ function buildTourCard(tour) {
   if (badgeHtml) imageLink.insertAdjacentHTML('afterbegin', badgeHtml);
   imageLink.appendChild(img);
 
+  const savePct = Math.round((1 - tour.priceNow / tour.priceOld) * 100);
+  if (savePct >= 5) {
+    imageLink.insertAdjacentHTML('beforeend', '<span class="tour-card__save">Save ' + savePct + '%</span>');
+  }
+  imageLink.insertAdjacentHTML(
+    'beforeend',
+    '<span class="tour-card__guaranteed"><span class="material-icons-outlined">verified</span> Guaranteed</span>'
+  );
+
   const body = document.createElement('div');
+  body.className = 'tour-card__body';
   body.innerHTML =
     '<div class="tour-card__header">' +
       '<a href="#" class="tour-card__title">' + tour.title + '</a>' +
@@ -133,7 +143,9 @@ function buildTourCard(tour) {
       '<div class="tour-card__old">' + formatPrice(tour.priceOld) + '</div>' +
       '<div class="tour-card__price">Now ' + formatPrice(tour.priceNow) + '</div>' +
     '</div>' +
-    '<a href="#" class="tour-card__btn">View Tour</a>';
+    '<div class="tour-card__footer">' +
+      '<a href="#" class="tour-card__btn">View Tour</a>' +
+    '</div>';
 
   card.appendChild(imageLink);
   card.appendChild(body);

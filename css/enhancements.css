@@ -640,11 +640,7 @@ body.wishlist-open { overflow: hidden; }
 
 /* Responsive */
 @media (min-width: 992px) {
-  .header__nav { display: flex; }
   .stats-bar__grid { grid-template-columns: repeat(4, 1fr); }
-  .header__inner { gap: 16px; position: relative; }
-  .header__logo { position: absolute; left: 50%; transform: translateX(-50%); }
-  .header__logo:hover { transform: translateX(-50%) scale(1.03); }
 }
 
 @media (max-width: 991px) {

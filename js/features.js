@@ -63,26 +63,82 @@
     });
   }
 
-  /* Tour filters */
+  function updateToursCount() {
+    const carousel = $('#toursCarousel');
+    const countEl = $('#toursCount');
+    if (!carousel || !countEl) return;
+    const visible = $$('.tour-card', carousel).filter((c) => c.style.display !== 'none').length;
+    countEl.textContent = visible + (visible === 1 ? ' tour' : ' tours');
+  }
+
+  /* Tour filters + sort */
   function initTourFilters() {
     const filters = $('#tourFilters');
     const carousel = $('#toursCarousel');
+    const sort = $('#tourSort');
     if (!filters || !carousel) return;
 
-    filters.addEventListener('click', (e) => {
-      const btn = e.target.closest('[data-filter]');
-      if (!btn) return;
-      $$('[data-filter]', filters).forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
-      const f = btn.dataset.filter;
+    function applyFilter(f) {
       $$('.tour-card', carousel).forEach((card) => {
         const region = card.dataset.region || 'europe';
         const onSale = !!card.querySelector('.tour-badge--sale');
         const show = f === 'all' || (f === 'europe' && region === 'europe') || (f === 'sale' && onSale);
         card.style.display = show ? '' : 'none';
       });
-      showToast(f === 'all' ? 'Showing all tours' : 'Filtered: ' + btn.textContent.trim());
+      updateToursCount();
+    }
+
+    filters.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-filter]');
+      if (!btn) return;
+      $$('[data-filter]', filters).forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyFilter(btn.dataset.filter);
+      showToast(btn.dataset.filter === 'all' ? 'Showing all tours' : 'Filtered: ' + btn.textContent.trim());
     });
+
+    if (sort && typeof TOURS !== 'undefined') {
+      sort.addEventListener('change', () => {
+        const cards = Array.from($$('.tour-card', carousel));
+        const val = sort.value;
+        cards.sort((a, b) => {
+          const ta = TOURS.find((t) => t.id === parseInt(a.dataset.id, 10));
+          const tb = TOURS.find((t) => t.id === parseInt(b.dataset.id, 10));
+          if (!ta || !tb) return 0;
+          if (val === 'price-asc') return ta.priceNow - tb.priceNow;
+          if (val === 'price-desc') return tb.priceNow - ta.priceNow;
+          if (val === 'rating') return tb.rating - ta.rating;
+          if (val === 'duration') return tb.days - ta.days;
+          return tb.reviews - ta.reviews;
+        });
+        cards.forEach((c) => carousel.appendChild(c));
+        carousel.scrollLeft = 0;
+        showToast('Sorted: ' + sort.options[sort.selectedIndex].text);
+      });
+    }
+
+    updateToursCount();
+  }
+
+  function initNavSpy() {
+    const links = $$('[data-nav]');
+    if (!links.length) return;
+    const sections = links
+      .map((a) => document.getElementById(a.getAttribute('href').slice(1)))
+      .filter(Boolean);
+    if (!sections.length) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const id = entry.target.id;
+          links.forEach((a) => a.classList.toggle('is-active', a.dataset.nav === id));
+        });
+      },
+      { rootMargin: '-40% 0px -50% 0px', threshold: 0 }
+    );
+    sections.forEach((s) => io.observe(s));
   }
 
   /* Tour modal */
@@ -261,6 +317,7 @@
     initReveal();
     initStats();
     initTourFilters();
+    initNavSpy();
     initTourModal();
     initWishlistPanel();
     initFaq();
